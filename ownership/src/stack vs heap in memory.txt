@@ -1,0 +1,10 @@
+Both stack and heap are parts of memory available to a code at the runtime. But they are structured differently:
+The stack stores values in the order it gets them and removes values in the opposite order -- LIFO. 
+Therefore, all data stored in stack must have a fixed length.
+
+Data with arbitrary length must be stored on the heap instead. We request a data on the heap, heap looks for some empty space and returns a pointer the requestor code. A pointer is the address of the memory location. This is called heap allocation.
+However, we store the pointer on the stack memory because it is fixed size and known. Whenever we need the data, we get the pointer from stack memory, follow it in the heap.
+
+Pushing to stack is faster 'cause we have to push at the top only. In heaps, it slower because allocation requires to find a space 'enough' to fill our data. Accessing data is also slower due to the pointer + further looking overhead.
+
+But knowing that the main purpose of ownership is to manage heap data can help explain why it works the way it does.
